@@ -2,6 +2,7 @@
 This repository contains the code and slurm files required to run the ISM through a HPC Cluster.
 
 **Set up Instructions**
+
 Create a virtual environment, the default name in the sh files is "super_salt_env".
 
 Download all python files in the "Pipeline" folder, all shell scripts in the "Shell_Scripts" folder, and the "SuperSalt-swa.model" file from the data availablity section of the original SuperSalt paper: "https://doi.org/10.5281/zenodo.15734798".
