@@ -1,16 +1,23 @@
 # 2026-ISM--Integrated-SCM-MLIP
 This repository contains the code and slurm files required to run the ISM through a HPC Cluster.
 
-**Set up Instructions**
+## Set-up Instructions
 
-Create a virtual environment, the default name in the sh files is "super_salt_env".
+### Download necessary files
 
-Download all python files in the "Pipeline" folder, all shell scripts in the "Shell_Scripts" folder, and the "SuperSalt-swa.model" file from the data availablity section of the original SuperSalt paper: "https://doi.org/10.5281/zenodo.15734798".
+Create a virtual environment, using the "super_salt_env" yml file.
 
+Download all python files in the "Pipeline" folder, all shell scripts in the "Shell_Scripts" folder, and the "SuperSalt-swa.model" file from the data availablity section of the original SuperSalt paper: "https://doi.org/10.5281/zenodo.15734798". Once all of these are in the same folder, the pipeline is ready to be used. The current shell scripts are set for H200 GPUs, but this can be changed to whatever GPU the user would like to use. The time should be adjusted as necessary if operating on a HPC cluster that requires estimated time inputs.
+
+### Enter desired composition and temperature into command line
 Thermal conductivity can be predicted by entering a command in the following format: "./submit_master_pipeline.sh 0.32MgCl2-0.68KCl 800" for the case of 0.32MgCl2-0.68KCl at 800 K. 
 
+#### Current state of density calculation
 Currently, if the salt mixture has components for which the Redlich-Kister excess terms are not calculated, this command will throw an error and the user needs to run a short MD simulation predicting density using the SuperSalt potential. The files needed for this are in the folder "Manual_Density". 
 
-Development is currently being done to automate this part of the workflow as well, so that if the RK model cannot be used, the MD simulation for density will be queued automatically.
+*Development is currently being done to automate this part of the workflow as well, so that if the RK model cannot be used, the MD simulation for density will be queued automatically.*
 
-In the case of any failed simulations, the shell scripts and python files needed to run single simulations are in the folder "Reruns". Once all four properties, cp, vs, scl, and kt, have a txt file associated with their value, thermal conductivity can be calculated using the "submit_missed_aggregate.sh" shell script. 
+### Debugging
+Sometimes a MD simulation may fail, and the aggregate script will never run. In that case, rerun the failed MD simulation, and then run the aggregate script again.
+
+The shell scripts and python files needed to run single simulations are in the folder "Reruns". Once all four properties, cp, vs, scl, and kt, have a txt file associated with their value, thermal conductivity can be calculated using the "submit_missed_aggregate.sh" shell script. 
