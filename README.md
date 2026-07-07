@@ -1,5 +1,9 @@
-# 2026-ISM--Integrated-SCM-MLIP
+# Integrated structural coherence model (SCM) and machine-learning interatomic potential (MLIP)
+
 This repository contains the code and slurm files required to run the ISM through a HPC Cluster.
+
+This pipeline is from the paper:
+> **Integration of a Structural Coherence Model with a Semi-Universal Machine Learning Interatomic Potential to Predict Molten Salt Thermal Conductivity** (Walker et al., 2026).
 
 ## Set-up Instructions
 
