@@ -16,7 +16,7 @@ Download the csv files "Molten_Salt_Thermophysical_Properties_rho_RK" and "Molte
 
 Once all of these files are in the same folder, the pipeline is ready to be used. The current shell scripts are set for H200 GPUs, but this can be changed to whatever GPU the user would like to use. The time should be adjusted as necessary if operating on a HPC cluster that requires estimated time inputs. Current times are set for H200 NVDIA GPUs.
 
-### If RK Density Unavailable
+#### If RK Density Unavailable
 If unable to access the csv files needed for RK_Density.py, run submit_large_density.sh to predict density using the SuperSalt MLIP. Within the shell script adjust the composition and temperature arguments as needed. It will output a txt file readable by the pipeline.
 
 In the case RK Density was not accessible, confirm there is a txt file for density before running the full pipeline.
