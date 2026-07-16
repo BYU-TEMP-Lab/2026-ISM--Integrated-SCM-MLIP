@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=Vs_Array
 #SBATCH --output=slurm_vs_%A_%a.out  
-#SBATCH --time=14:00:00               
+#SBATCH --time=03:00:00               
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1            
